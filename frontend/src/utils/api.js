@@ -11,7 +11,8 @@ const BASE_URL =
   import.meta.env.VITE_API_URL ||
   (window.location.hostname === "localhost"
     ?"http://localhost:8000"
-   :"https://recolens.geetanjalinishad0109.workers.dev");
+   :"https://recolenss-api.geetanjalinishad0109.workers.dev"
+  :);
 
     // Create axios instance
 const api = axios.create({
