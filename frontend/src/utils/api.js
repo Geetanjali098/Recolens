@@ -7,14 +7,18 @@
 
 import axios from 'axios'
 
-// Read base URL from .env (Vite exposes VITE_* vars)
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (window.location.hostname === "localhost"
+    ? "http://localhost:8000"
+    : "https://recolens.geetanjalinishad0109.workers.dev");
 
+    // Create axios instance
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 15000,  // 15s timeout
-  headers: { 'Content-Type': 'application/json' },
-})
+  timeout: 15000,
+  headers: { "Content-Type": "application/json" },
+});
 
 // ---------- Products ----------
 
