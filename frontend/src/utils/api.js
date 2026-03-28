@@ -10,7 +10,8 @@ import axios from 'axios'
 const BASE_URL =
   import.meta.env.VITE_API_URL ||
   (window.location.hostname === "localhost"
-    ? "http://localhost:8000");
+    ? "http://localhost:8000"
+    : "https://ecolens-geetanjali0984188-mi9kr0sw.leapcell.dev" );
 
     // Create axios instance
 const api = axios.create({
