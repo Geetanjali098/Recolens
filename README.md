@@ -361,6 +361,5 @@ This project is licensed under the MIT License.
 Built with ❤️ by **Geetanjali Nishad**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Geetanjali098-181717?style=flat-square&logo=github)](https://github.com/Geetanjali098/Recolens)
-[![Live Demo](https://img.shields.io/badge/Live-recolens-phi.vercel.app-F4A535?style=flat-square&logo=cloudflare)](https://recolens-phi.vercel.app)
 
 </div>
