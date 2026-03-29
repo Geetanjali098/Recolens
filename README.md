@@ -270,7 +270,7 @@ Recolens/
 | Platform | Key | Value |
 |---|---|---|
 | **Leapcell** (backend) | `PORT` | `8080` |
-| **Vercel** (frontend) | `VITE_API_URL` | `https://your-backend.leapcell.dev` |
+| **Vercel** (frontend) | `VITE_API_URL` | `https://ecolens-geetanjali0984188-mi9kr0sw.leapcell.dev` |
 
 ---
 
