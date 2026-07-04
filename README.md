@@ -26,7 +26,7 @@
 - [Project Structure](#5-project-structure)
 - [API Endpoints](#6-api-endpoints)
 - [Features](#7-features)
-- [Deployment — Leapcell + Vercel](#8-deployment--leapcell--vercel)
+- [Deployment — HuggingFace + Vercel](#8-deployment--HuggingFace--vercel)
 - [Local Development Setup](#9-local-development-setup)
 - [Dataset](#10-dataset)
 
@@ -216,7 +216,7 @@ Recolens/
 
 ### 8.1 Why This Combination?
 
-| Feature | Leapcell *(Backend)* | Vercel *(Frontend)* |
+| Feature | HuggingFace *(Backend)* | Vercel *(Frontend)* |
 |---|---|---|
 | Cost | Free forever ✅ | Free forever ✅ |
 | Credit Card | Not required ✅ | Not required ✅ |
@@ -229,16 +229,6 @@ Recolens/
  
 1. Go to [huggingface.co/spaces](https://huggingface.co/spaces)
 2. Click **"Create new Space"**
-3. Fill in:
-| Field | Value |
-|---|---|
-| **Space name** | `fraud-detection-system-api` |
-| **License** | `MIT` |
-| **SDK** | `Docker` ← important |
-| **Visibility** | `Public` |
- 
-4. Click **"Create Space"**
----
 
 
 ### 8.3 Frontend Deployment on Vercel
@@ -257,7 +247,7 @@ Recolens/
           │
     ┌─────┴─────┐
     ▼           ▼
- Leapcell     Vercel
+ HuggingFace     Vercel
  detects      detects
  change       change
     │           │
@@ -276,8 +266,8 @@ Recolens/
 
 | Platform | Key | Value |
 |---|---|---|
-| **Leapcell** (backend) | `PORT` | `8080` |
-| **Vercel** (frontend) | `VITE_API_URL` | `https://ecolens-geetanjali0984188-mi9kr0sw.leapcell.dev` |
+| **HuggingFace** (backend) | `PORT` | `7860` |
+| **Vercel** (frontend) | `VITE_API_URL` | `https://geetanjali09-recolens-api.hf.space` |
 
 ---
 
