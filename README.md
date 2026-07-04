@@ -212,7 +212,7 @@ Recolens/
 
 ---
 
-## 8. Deployment — Leapcell + Vercel
+## 8. Deployment — HuggingFace + Vercel
 
 ### 8.1 Why This Combination?
 
@@ -231,11 +231,11 @@ Recolens/
 2. Click **"Create new Space"**
 3. Fill in the details:
  
-   Owner:      your-username
-   Space name: recolens-api
-   License:    MIT
-   SDK:        Docker        ← SELECT THIS (not Gradio/Streamlit)
-   Hardware:   CPU Basic     ← Free tier ✅
+  | Owner:     |  your-username
+  | Space name:| recolens-api
+  | License:   | MIT
+  | SDK:       | Docker        ← SELECT THIS (not Gradio/Streamlit)
+  | Hardware:  | CPU Basic     ← Free tier ✅
  
 4. Click "Create Space"
 ```
