@@ -229,6 +229,16 @@ Recolens/
  
 1. Go to [huggingface.co/spaces](https://huggingface.co/spaces)
 2. Click **"Create new Space"**
+3. Fill in the details:
+ 
+   Owner:      your-username
+   Space name: recolens-api
+   License:    MIT
+   SDK:        Docker        ← SELECT THIS (not Gradio/Streamlit)
+   Hardware:   CPU Basic     ← Free tier ✅
+ 
+4. Click "Create Space"
+```
 
 
 ### 8.3 Frontend Deployment on Vercel
