@@ -225,14 +225,21 @@ Recolens/
 | Python / FastAPI | Fully supported ✅ | N/A — Frontend only |
 | HTTPS / SSL | Included ✅ | Included ✅ |
 
-### 8.2 Backend Deployment on Leapcell
+### 8.2 Backend Deployment on HuggingFace
+ 
+1. Go to [huggingface.co/spaces](https://huggingface.co/spaces)
+2. Click **"Create new Space"**
+3. Fill in:
+| Field | Value |
+|---|---|
+| **Space name** | `fraud-detection-system-api` |
+| **License** | `MIT` |
+| **SDK** | `Docker` ← important |
+| **Visibility** | `Public` |
+ 
+4. Click **"Create Space"**
+---
 
-1. Go to [leapcell.io](https://leapcell.io) → Sign up free (no credit card)
-2. Click **"Create Service"** → Connect GitHub → Select Recolens repo
-3. Set **Root Directory:** `backend`
-4. Set **Run Command:** `uvicorn main:app --host 0.0.0.0 --port 8080`
-5. Add **Environment Variable:** `PORT = 8080`
-6. Click **Deploy** → copy your `.leapcell.dev` URL
 
 ### 8.3 Frontend Deployment on Vercel
 
