@@ -11,7 +11,7 @@
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-**🌐 [Live Demo](https://recolens-phi.vercel.app)  ·  ⚙️ [API Backend](https://ecolens-geetanjali0984188-mi9kr0sw.leapcell.dev)  ·  📦 [GitHub](https://github.com/Geetanjali098/Recolens)**
+**🌐 [Live Demo](https://recolens-phi.vercel.app)  ·  ⚙️ [API Backend](https://geetanjali09-recolens-api.hf.space)  ·  📦 [GitHub](https://github.com/Geetanjali098/Recolens)**
 
 </div>
 
@@ -123,7 +123,7 @@ Filtering    Filtering
 | **Styling** | Tailwind CSS | Utility-first CSS with custom design tokens, animations, skeleton loaders |
 | **HTTP Client** | Axios | Promise-based HTTP calls with timeout, error handling and base URL config |
 | **Routing** | React Router v6 | Client-side SPA routing between Home and Recommend pages |
-| **Backend Host** | Leapcell | Free Python hosting — never sleeps, no credit card, auto-deploy from GitHub |
+| **Backend Host** | Hugging Face | Free Python hosting — never sleeps, no credit card, auto-deploy from GitHub |
 | **Frontend Host** | Vercel | Zero-config React/Vite deployment with global CDN and instant HTTPS |
 
 ---
@@ -182,7 +182,7 @@ Recolens/
 }
 ```
 
-> 📖 Interactive API docs available at: `https://your-backend.leapcell.dev/docs`
+> 📖 Interactive API docs available at: `/docs`
 
 ---
 
