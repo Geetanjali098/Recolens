@@ -225,19 +225,122 @@ Recolens/
 | Python / FastAPI | Fully supported ✅ | N/A — Frontend only |
 | HTTPS / SSL | Included ✅ | Included ✅ |
 
-### 8.2 Backend Deployment on HuggingFace
- 
-1. Go to [huggingface.co/spaces](https://huggingface.co/spaces)
-2. Click **"Create new Space"**
-3. Fill in the details:
- 
-  | Owner:     |  your-username
-  | Space name:| recolens-api
-  | License:   | MIT
-  | SDK:       | Docker        ← SELECT THIS (not Gradio/Streamlit)
-  | Hardware:  | CPU Basic     ← Free tier ✅
- 
-4. Click "Create Space"
+### 8.2 Backend Deployment on Hugging Face Spaces
+
+#### 📁 Files Required Inside the Space Repo
+
+```
+recolens-api/
+├── Dockerfile              ← Required — tells HF how to build
+├── main.py                 ← FastAPI application
+├── recommendation.py       ← ML recommendation engine
+├── requirements.txt        ← Python dependencies
+└── data/
+    ├── products.csv        ← Products dataset
+    └── ratings.csv         ← User ratings dataset
+```
+
+#### 🐳 Dockerfile (Required)
+
+Create a file named `Dockerfile` (no extension) with this content:
+
+```dockerfile
+FROM python:3.11-slim
+
+# Non-root user required by Hugging Face
+RUN useradd -m -u 1000 user
+USER user
+
+ENV PATH="/home/user/.local/bin:$PATH"
+
+WORKDIR /app
+
+COPY --chown=user requirements.txt .
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+COPY --chown=user . .
+
+# ⚠️ Hugging Face requires port 7860 — do not change
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
+```
+
+#### 🚀 Step-by-Step Deployment
+
+**Step 1 — Create Hugging Face Account**
+```
+Go to → https://huggingface.co/join
+Sign up free — no credit card needed ✅
+```
+
+**Step 2 — Create a New Space**
+```
+Go to → https://huggingface.co/spaces
+→ Click "Create new Space"
+→ Fill in:
+    Space name: recolens-api
+    SDK:        Docker        ← Important: select Docker
+    Hardware:   CPU Basic     ← Free tier ✅
+→ Click "Create Space"
+```
+
+**Step 3 — Get Your Access Token**
+```
+Go to → https://huggingface.co/settings/tokens
+→ Click "New token"
+→ Name: recolens-deploy
+→ Role: Write              ← Must be Write not Read
+→ Copy the token (starts with hf_...)
+⚠️ Save it — you cannot see it again!
+```
+
+**Step 4 — Clone Space Repo & Add Files**
+```bash
+# Clone your empty Space
+git clone https://huggingface.co/spaces/YOUR_USERNAME/recolens-api
+cd recolens-api
+
+# Copy all backend files into it
+# Windows:
+xcopy "path\to\Recolens\backend\*" . /E /H /Y
+
+# Mac/Linux:
+cp -r path/to/Recolens/backend/* .
+
+# Create Dockerfile (content shown above)
+# Then check all files are present:
+# ✅ Dockerfile
+# ✅ main.py
+# ✅ recommendation.py
+# ✅ requirements.txt
+# ✅ data/products.csv
+# ✅ data/ratings.csv
+```
+
+**Step 5 — Push to Hugging Face**
+```bash
+# Set remote URL with your access token
+git remote set-url origin https://YOUR_USERNAME:YOUR_TOKEN@huggingface.co/spaces/YOUR_USERNAME/recolens-api
+
+# Add, commit and push all files
+git add .
+git commit -m "Deploy FastAPI backend"
+git push
+```
+
+**Step 6 — Verify It's Running**
+```
+Go to → https://huggingface.co/spaces/YOUR_USERNAME/recolens-api
+
+You will see:
+⏳ Building...   (wait 3–5 minutes)
+✅ Running!
+
+Test your live API:
+https://YOUR_USERNAME-recolens-api.hf.space/
+→ {"status":"ok","message":"Hybrid Recommendation API is running 🚀"}
+
+API Docs:
+https://YOUR_USERNAME-recolens-api.hf.space/docs
 ```
 
 
@@ -247,7 +350,7 @@ Recolens/
 2. **New Project** → Import Recolens repo
 3. Set **Framework Preset:** `Vite`
 4. Set **Root Directory:** `frontend`
-5. Add **Environment Variable:** `VITE_API_URL = (your Leapcell URL)`
+5. Add **Environment Variable:** `VITE_API_URL = https://YOUR_USERNAME-recolens-api.hf.space`
 6. Click **Deploy** → live at `.vercel.app`
 
 ### 8.4 Auto-Deploy Update Flow
